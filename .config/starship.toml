@@ -1,0 +1,38 @@
+add_newline = false
+command_timeout = 10000000000
+
+format = """
+$hostname$directory$git_branch$git_commit$git_state$shell$character"""
+
+right_format = """$git_status$time"""
+
+[character]
+success_symbol = "[�~A�](bold green) "
+error_symbol = "[�~A�](bold red) "
+
+[shell]
+disabled = false
+fish_indicator = "�~K~J>"
+
+[hostname]
+style = "fg:28"
+format="[$hostname]($style)�~C~Z"
+trim_at = "_"
+
+[directory]
+truncation_length = 5
+style = "bold white"
+format = "[$path]($style)[$read_only]($read_only_style) "
+
+[git_branch]
+style = "bold fg:134"
+format = "[$symbol$branch]($style) "
+
+[time]
+disabled = false
+format = "[$time](white) "
+time_format = "%R"
+
+[cmd_duration]
+style = "grey"
+format = "[$duration]($style) "

@@ -1,0 +1,50 @@
+# Aliases
+alias crr='cd /workspaces/roserocket'
+alias sfish='source ~/.config/fish/config.fish'
+alias vfish='vim ~/.config/fish/config.fish'
+
+alias ls='ls -al'
+
+alias gis='git status'
+alias gs='git switch'
+alias gb='git branch'
+alias gd='git diff'
+alias gl='git log'
+alias gm='git merge'
+alias gM='git merge --squash'
+alias gf='git pull'
+alias gp='git push'
+alias ga='git add'
+alias gA='git add .'
+alias gcm='git commit -m'
+alias gca='git commit --amend'
+alias gsd='git switch develop'
+alias gsc='git switch -c'
+alias glr='git log --raw'
+alias gcam='git commit -am'
+alias fetch='git fetch'
+alias stashls='git stash list'
+alias stashapp='git stash apply'
+alias stashpop='git stash pop'
+
+alias rebasedev='git rebase origin/develop'
+alias resetconftest='git checkout -- lib/database/rdbms/config_test.go'
+
+alias goosed='make goose-down'
+alias gooses='make goose-status'
+alias gooseu='make goose-up'
+
+alias updev='docker-compose -f docker-compose.personal.yaml up'
+alias reloadapi='make reload-api'
+alias reloadui='make reload-ui'
+alias reloadauth='make reload-auth'
+alias reloadmob='make reload-mob'
+alias reloadplat='make reload-plat'
+alias logapi='docker logs roserocket_api_1 --tail 100'
+alias logui='docker logs roserocket_ui_1 --tail 100'
+alias logdocs='docker logs roserocket_docs_1 --tail 100'
+alias lockc='sudo choom -p (ps aux | grep webpack | grep root | awk \'{print $2}\') -n -500'
+
+alias cyopen='npm run cy:open'
+
+# starship init fish | source
