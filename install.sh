@@ -22,9 +22,3 @@ curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install 
 echo "---------- Installing fisher ----------"
 curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 
-echo "---------- Installing Starship prompt ----------"
-sh -c "$(curl -fsSL https://starship.rs/install.sh)"
-
-echo "Setting fish as default prompt"
-sudo chsh -s /usr/bin/fish codespace
-
