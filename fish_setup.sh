@@ -1,3 +1,4 @@
+#!/bin/bash
 echo "---------- Installing fisher/z ----------"
 fisher install jethrokuan/z
 
