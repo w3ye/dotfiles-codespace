@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo apt update && sudo apt upgrade
+
 cd ~
 
 echo '========== INSTALLING OH-MY-ZSH =========='
