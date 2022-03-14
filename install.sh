@@ -1,24 +1,23 @@
 #!/bin/bash
 
-ln -s ./.config/fish/config.fish ~/.config/fish/config.fish
+cd ~
 
-# Installing apt packages
-declare -a packages=("fish")
+echo '========== INSTALLING OH-MY-ZSH =========='
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-for package in "${packages[@]}"
-do
-	PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $package|grep "install ok installed")
-	if [ "" = "$PKG_OK" ]; then
-  		echo "---------- $package not installed. Installing $package. ----------"
-  		sudo apt-get --yes install $package
-	else
-		echo "---------- $package already exists ----------"
-	fi
-done
+echo '========== INSTALLING ZNAP =========='
+git clone --depth 1 -- https://github.com/marlonrichert/zsh-snap.git
 
-echo "---------- Installing Oh-My-Fish ----------"
-curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+echo '========== INSTALLING ZSH-SYNTAX-HIGHLIGHTING =========='
+sudo apt install zsh-syntax-highlighting
 
-echo "---------- Installing fisher ----------"
-curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+echo '========== INSTALLING ZSH-HISTORY-SUBSTRING-SEARCH =========='
+git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search
 
+echo '========== INSTALLING STARSHIP PROMPT=========='
+curl -sS https://starship.rs/install.sh | sh
+
+cp /dotfiles-codespace/.zshrc ~/
+cp /dotfiles-codespace/.config/starship.toml ~/.config/
+
+sudo chsh -s /usr/bin/zsh codespace
