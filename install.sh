@@ -20,7 +20,7 @@ git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CUSTOM
 echo '========== INSTALLING STARSHIP PROMPT=========='
 curl -sS https://starship.rs/install.sh | sh
 
-cp /dotfiles-codespace/.zshrc ~/
-cp /dotfiles-codespace/.config/starship.toml ~/.config/
+cp /dotfiles-codespace/.zshrc ~/.zshrc
+cp /dotfiles-codespace/.config/starship.toml ~/.config/starship.toml
 
 sudo chsh -s /usr/bin/zsh codespace
